@@ -2,12 +2,40 @@
 <html ng-app="inbox">
 <head>
   <title>inbox</title>
+  <link rel="stylesheet" href="css/main.css">
   <script src="js/angular.js"></script>
   <script src="js/angular-route.js"></script>
   <script src="js/index.js"></script>
+
+  <!-- TEMPLATES -->
+  <script type="text/ng-template" id="main.html">
+    <h2>Welcome!</h2>
+ </script>
+  <script type="text/ng-template" id="inbox.html">
+    <h2>Messages</h2>
+  </script>
+  <script type="text/ng-template" id="calendar.html">
+    <h2>Calendar</h2>
+  </script>
+  <script type="text/ng-template" id="contacts.html">
+    <h2>Contacts</h2>
+  </script>
+  <script type="text/ng-template" id="config.html">
+    <h2>Config</h2>
+  </script>
+
 </head>
 <body>
-  <h1>inbox</h1>
-  <div ng-view></div>
+  <header id="navbar">
+    <div id="nav">
+      <ul>
+        <li><a href="#/inbox">inbox</a></li>
+        <li><a href="#/calendar">calendar</a></li>
+        <li><a href="#/contacts">contacts</a></li>
+        <li><a href="#/config">config</a></li>
+      </ul>
+    </div> 
+  </header>
+  <div ng-view id="content"></div>
 </body>
 </html>

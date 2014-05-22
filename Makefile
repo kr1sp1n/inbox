@@ -13,3 +13,5 @@ build: clean
 	$(COFFEE_BIN) --compile --output ./build/js ./app/coffee	
 	cp ./app/index.html ./build/
 	cp ./app/lib/*.js ./build/js/
+	mkdir ./build/css
+	cp ./app/css/*.css ./build/css/
