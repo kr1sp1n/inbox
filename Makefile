@@ -3,7 +3,7 @@ COFFEE_BIN = ./node_modules/.bin/coffee
 
 .PHONY: clean
 
-start:
+start: build
 	$(WEBKIT_BIN) .
 
 clean:
@@ -12,6 +12,6 @@ clean:
 build: clean
 	$(COFFEE_BIN) --compile --output ./build/js ./app/coffee	
 	cp ./app/index.html ./build/
-	cp ./app/lib/*.js ./build/js/
+	cp ./app/lib/**/*.min.js ./build/js/
 	mkdir ./build/css
 	cp ./app/css/*.css ./build/css/

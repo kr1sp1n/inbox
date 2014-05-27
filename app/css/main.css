@@ -14,9 +14,14 @@ ul {
   padding: 0;
 }
 
+a {
+  color: #000;
+  text-decoration: none;
+}
+
 #navbar {
-  padding: 0;
-  background: #ccc;
+  padding: 10px;
+  background: #fff;
   overflow: visible;
   position: fixed;
   right: 0;
@@ -25,6 +30,8 @@ ul {
   top: 0;
   height: 40px;
   margin-bottom: 0;
+  -webkit-user-select: none;
+  -webkit-app-region: drag;
 }
 
 #nav li {
@@ -34,18 +41,121 @@ ul {
 #nav li a {
   display: block;
   line-height: 40px;
-  background: #ccc;
   text-align: center;
   width: 80px;
-  text-decoration: none;
-  color: #000
+  color: #999;
+  margin-right: 5px;
+  background-color: #fff;
+  border-radius: 8px;
 }
 
 #nav li a:hover {
-  background: #999;
+  background: cyan;
   color: #fff;
 }
 
-#content {
-  padding: 0 0 0 20px;
+#app-controls {
+  float: right;
+  margin: 0 10px 0 0;
 }
+
+#app-controls li {
+  float: left;
+}
+
+#app-controls a {
+  line-height: 40px;
+  display: block;
+}
+
+#content {
+  padding: 0;
+  margin: 0;
+}
+
+#content h2 {
+  padding-left: 30px;
+}
+
+#content .filter {
+  padding: 0 0 20px 30px;
+}
+
+#content .filter input {
+  width: 300px;
+}
+
+.list .item {
+  border-bottom: 1px solid #ccc;
+  margin: 0;
+  padding: 5px 30px 5px 30px;
+  display: block;
+  clear: both;
+}
+
+.message:hover {
+  background: #ccf;
+  cursor: pointer;
+}
+
+.message header div {
+  display: inline;
+}
+
+.message .received {
+  float: right;
+  color: #999;
+  font-size: 11px
+}
+.message .from {
+  color: #f90;
+}
+
+.message .via {
+  color: #999;
+}
+
+.message .channel {
+  color: lightgreen;
+}
+
+#calendar {
+  padding: 0 0 0 30px;
+}
+
+#calendar li {
+  float: left;
+}
+
+.contact .name {
+  color: #333;
+  font-weight: bold;
+  float: left;
+}
+
+.contact .alias {
+  margin: 0 0 0 10px;
+  color: #ccc;
+}
+
+.contact .protocols {
+  clear: both;
+}
+
+.contact .protocol {
+  margin-right: 10px;
+  padding: 0;
+  border-radius: 3px;
+}
+
+.contact .protocol a {
+  color: #ccc
+}
+
+.day {
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+

@@ -2,9 +2,11 @@
 <html ng-app="inbox">
 <head>
   <title>inbox</title>
+
+  <link rel="stylesheet" href="css/scaffold.css">
   <link rel="stylesheet" href="css/main.css">
-  <script src="js/angular.js"></script>
-  <script src="js/angular-route.js"></script>
+  <script src="js/angular.min.js"></script>
+  <script src="js/angular-route.min.js"></script>
   <script src="js/index.js"></script>
 
   <!-- TEMPLATES -->
@@ -12,21 +14,57 @@
     <h2>Welcome!</h2>
  </script>
   <script type="text/ng-template" id="inbox.html">
-    <h2>Messages</h2>
+    <div class="filter">
+      <input type="search" ng-model="q" placeholder="filter messages..." />
+    </div>
+    <ul class="list" id="messages">
+      <li ng-repeat="message in messages | filter:q">
+        <div class="message item" >
+          <header>
+            <div class="from">{{ message.from }}</div>
+            <div class="via"> via </div>
+            <div class="channel">{{message.channel}}</div>
+            <div class="received">{{ message.received_at | date:'yyyy-MM-dd HH:mm:ss' }}</div>
+          </header>
+          <div class="body">{{message.body}}</div>
+        </div>
+      </li>
+    </ul>
   </script>
   <script type="text/ng-template" id="calendar.html">
     <h2>Calendar</h2>
+    <ul id="calendar">
+      <li ng-repeat="day in month">
+        <div class="day">{{day}}</div>
+      </li>
+    </ul>
   </script>
   <script type="text/ng-template" id="contacts.html">
-    <h2>Contacts</h2>
+    <div class="filter">
+      <input type="search" ng-model="q" placeholder="filter messages..." />
+    </div>
+    <ul class="list" id="contacts">
+      <li ng-repeat="contact in contacts | filter:q">
+        <div class="contact item">
+          <header>
+            <div class="name">{{ contact.person.name }}</div>
+          </header>
+          <div class="protocols">
+            <span class="protocol" ng-repeat="protocol in contact.person.protocols">
+              <a href="#" ng-click="open(protocol)">{{ protocol.value }}</a>
+            </span>
+          </div>
+        </div>
+      </li>
+    </ul>
   </script>
   <script type="text/ng-template" id="config.html">
     <h2>Config</h2>
   </script>
 
 </head>
-<body>
-  <header id="navbar">
+<body ng-controller="AppCtrl">
+  <header id="navbar" draggable>
     <div id="nav">
       <ul>
         <li><a href="#/inbox">inbox</a></li>
@@ -34,7 +72,12 @@
         <li><a href="#/contacts">contacts</a></li>
         <li><a href="#/config">config</a></li>
       </ul>
-    </div> 
+    </div>
+    <div id="app-controls">
+      <ul>
+        <li><a href="#" ng-click="closeApp()">close</a></li>
+      </ul>
+    </div>
   </header>
   <div ng-view id="content"></div>
 </body>
