@@ -1,4 +1,5 @@
 gui = require 'nw.gui'
+dirname = process.cwd()
 
 angular.module('inbox', ['ngRoute'])
 .config ($routeProvider)->
